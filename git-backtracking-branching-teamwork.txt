@@ -1,0 +1,118 @@
+=========
+BACKTRACKING
+==============
+
+
+git show HEAD - will display everything the git log command displays for the HEAD commit, plus all the file changes that were committed.
+
+git checkout HEAD filename -will restore the file in your working directory to look exactly as it did when you last made a commit.
+
+git diff - git diff to see the difference between <FILENAME> as it appears in the working directory vs. how it appears in your last commit.
+
+git reset HEAD filename -  This command resets the file in the staging area to be the same as the HEAD commit. It does not discard file changes from the working directory, it just removes them from the staging area.
+
+git reset SHA - Git enables you to rewind to the part before you made the wrong turn and create a new destiny for the project
+                 This command works by using the first 7 characters of the SHA of a previous commit.
+
+git checkout HEAD filename: Discards changes in the working directory.
+git reset HEAD filename: Unstages file changes in the staging area.
+git reset SHA: Can be used to reset to a previous commit in your commit history.
+
+
+============
+GIT BRANCHING
+===========
+1)
+: “which branch am I on?” ad also lists out all the branches
+git branch
+
+2)
+To create a new branch, use:
+git branch new_branch
+
+3)You can switch to the new branch with
+git checkout branch_name
+
+4)merging the branch into master with:
+git merge branch_name
+(giver branch, receiver branch, fast forward merge .. most recent commit)
+
+5) merge conflict
+
+6)
+will delete the specified branch from your Git project.
+git branch -d branch_name
+-----------
+Git branching allows users to experiment with different versions of a project by checking out separate branches to work on.
+The following commands are useful in the Git branch workflow.
+
+git branch: Lists all a Git project's branches.
+git branch branch_name: Creates a new branch.
+git checkout branch_name: Used to switch from one branch to another.
+git merge branch_name: Used to join file changes from one branch to another.
+git branch -d branch_name: Deletes the branch specified.
+----------
+
+You'll need the -D option, because these feature branches were never merged into master:
+
+git branch -D branchname
+
+----------
+====================================
+Git TEAMWORK
+=================================
+So far, we've learned how to work on Git as a single user. Git offers a suite of collaboration tools to make working with others on a project easier.
+You can accomplish all of this by using remotes. A remote is a shared Git repository that allows multiple collaborators to work on the same Git project from different locations. Collaborators work on the project independently, and merge changes together when they are ready to do so.
+
+1) create a remote respository in a directory, which other colloborators have a network access to
+To get your own replica clone it with -
+
+git clone remote_location clone_name
+
+
+In this command: 
+
+remote_location tells Git where to go to find the remote. This could be a web address, or a filepath, such as:
+/Users/teachers/Documents/some-remote
+
+clone_name is the name you give to the directory in which Git will clone the repository.
+
+2)  One thing that Git does behind the scenes when you clone remote repository is give the remote address the name origin, 
+so that you can refer to it more conveniently. 
+
+You can see a list of a Git project's remotes with the command:
+
+git remote -v
+
+3) git workflow colloboration
+-----
+Now that you've merged origin/master into your local master branch, you're ready to contribute some work of your own.
+ The workflow for Git collaborations typically follows this order:
+
+Fetch and merge changes from the remote
+Create a branch to work on a new project feature
+Develop the feature on your branch and commit your work
+Fetch and merge from the remote again (in case new commits were made while you were working)
+Push your branch up to the remote for review
+Steps 1 and 4 are a safeguard against merge conflicts, which occur when two branches contain file changes that cannot be merged with the git merge command.
+ Step 5 involves git push
+----------
+
+ to start collaborating on Git projects! Let's review.
+
+A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on
+ your local computer.
+The Git Collaborative Workflow are steps that enable smooth project development when multiple collaborators are working on the same Git project.
+We also learned the following commands
+
+git clone: Creates a local copy of a remote.
+git remote -v: Lists a Git project's remotes.
+git fetch: Fetches work from the remote into the local copy.
+git merge origin/master: Merges origin/master into your local branch.
+git push origin <branch_name>: Pushes a local branch to the origin remote.
+Git projects are usually managed on Github, a website that hosts Git projects for millions of users. With Github you can access your projects from anywhere in the world by using the basic workflow you learned here.
+
+-------------------
+https://www.atlassian.com/agile/release-ready-agile-teams
+
+
